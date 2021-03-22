@@ -90,6 +90,8 @@ Q1.2) Is altercentric intrusion related to specific symptoms *in the patients*? 
 
 
 ```{r}
+#Tip for improvement ! Use the function "update()" in stead of building all the models again. 
+
 
 #MODELS
 df <- subset(df, Diagnosis==1)
@@ -229,6 +231,9 @@ plot(conditional_effects(m4 , spaghetti=T,
 
 Q2.1) However, we know that the diagnosis is based on symptom assessment: if the overall sum of symptoms is severe enough, the participant gets a diagnosis. In other words, by selecting the patients, and including the symptoms in the model we might have inadvertently introduced an issue in our inference. Do try to draw a causal graph (Directed Acyclical Graph) of the variables and compare it with the types of causal graphs presented in the slides. Discuss which biases you might have introduced.
 ```{r}
+#Tip for improvement. You can check whether you have conditioned correctly (given your DAG) with the dagitty package (using the adjustmentSets function) 
+
+
 #install.packages("dagitty", dependencies = T)
 #install.packages("ggdag", dependencies = T)
 library(dagitty)
@@ -260,6 +265,9 @@ p1 <-
   theme(panel.grid = element_blank())
 
 p1
+
+
+?adjustmentSets
 
 ```
 
